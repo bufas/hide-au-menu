@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+	"name": "Hide au.dk menu",
+	"version": "1",
+
+	"description": "Easy way to hide the annoying menu on www.au.dk.",
+
+	"icons": {
+		"128": "images/plusicon128.png"
+	},
+
+	"page_action": {
+		"default_title": "Disable top bar",
+		"default_icon": {
+			"19": "images/plusicon19.png",
+			"38": "images/plusicon38.png"
+		}
+	},
+
+	"content_scripts" : [{
+		"matches" : [
+			"http://*.au.dk/*",
+			"https://services.brics.dk/*"
+		],
+		"js" : ["jquery-1.10.2.min.js","content.js"]
+	}],
+
+	"web_accessible_resources": [
+		"jquery-1.10.2.min.map"
+	],
+
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	}
+}
